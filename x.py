@@ -19,8 +19,6 @@ debian_arches = [
 ]
 
 debian_variants = [
-    "buster",
-    "bullseye",
     "bookworm",
 ]
 
@@ -34,7 +32,6 @@ alpine_arches = [
 ]
 
 alpine_versions = [
-    "3.17",
     "3.18",
 ]
 
