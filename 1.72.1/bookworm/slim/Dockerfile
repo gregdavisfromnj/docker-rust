@@ -13,7 +13,8 @@ RUN set -eux; \
         libc6-dev \
         procps \
         curl \
-        git \
+        openssh-client \
+	git \
         neovim \
         protobuf-compiler libprotobuf-dev; \
     dpkgArch="$(dpkg --print-architecture)"; \

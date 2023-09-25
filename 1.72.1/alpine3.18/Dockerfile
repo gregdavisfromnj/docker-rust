@@ -3,6 +3,8 @@ FROM alpine:3.18
 RUN apk add --no-cache \
         ca-certificates \
         gcc \
+	openssh-client \
+	git \
         protoc protobuf-dev
 
 ENV RUSTUP_HOME=/usr/local/rustup \
