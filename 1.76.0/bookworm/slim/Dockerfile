@@ -5,6 +5,8 @@ ENV RUSTUP_HOME=/usr/local/rustup \
     PATH=/usr/local/cargo/bin:$PATH \
     RUST_VERSION=1.76.0
 
+COPY .bashrc /root/.bashrc
+
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
