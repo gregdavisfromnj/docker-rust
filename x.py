@@ -5,6 +5,7 @@ from urllib import request
 import os
 import subprocess
 import sys
+from shutil import copy
 
 stable_rust_version = "1.76.0"
 supported_rust_versions = [stable_rust_version, "nightly"]
@@ -88,6 +89,7 @@ def update_debian():
                 .replace("%%DEBIAN-SUITE%%", variant) \
                 .replace("%%ARCH-CASE%%", case)
             write_file(f"{rust_version}/{variant}/Dockerfile", rendered)
+            copy("build-debian/.bashrc", f"{rust_version}/{variant}/.bashrc")
 
             rendered = slim_template \
                 .replace("%%RUST-VERSION%%", rust_version) \
@@ -95,6 +97,9 @@ def update_debian():
                 .replace("%%DEBIAN-SUITE%%", variant) \
                 .replace("%%ARCH-CASE%%", case)
             write_file(f"{rust_version}/{variant}/slim/Dockerfile", rendered)
+            copy("build-debian-slim/.bashrc", f"{rust_version}/{variant}/slim/.bashrc")
+
+            
 
 def update_alpine():
     arch_case = 'apkArch="$(apk --print-arch)"; \\\n'
