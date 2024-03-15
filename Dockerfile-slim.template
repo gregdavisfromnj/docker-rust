@@ -16,7 +16,11 @@ RUN set -eux; \
         openssh-client \
 	git \
         neovim \
-        protobuf-compiler libprotobuf-dev; \
+	protobuf-compiler libprotobuf-dev \
+	grep ripgrep less jq \
+	bash-completion \
+	man man-db manpages manpages-dev \
+	net-tools iproute2 traceroute netcat-openbsd iputils-ping; \
     %%ARCH-CASE%%; \
     url="https://static.rust-lang.org/rustup/archive/%%RUSTUP-VERSION%%/${rustArch}/rustup-init"; \
     curl -o rustup-init "$url"; \
